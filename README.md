@@ -2,16 +2,16 @@
 
 **ConsultationPi** is a full-stack, AI-powered consultation platform that enables users to connect with virtual and human consultants across a wide range of domains — fitness, clinical, legal, financial, and more. With seamless AI interaction, scheduling, payments, notifications, and video meetings, it's your one-stop consultation ecosystem.
 
-## 🛠 Tech Stack
+## Tech Stack
 
-### 💻 Frontend
+### Frontend
 - **React** with TypeScript
 - **Tailwind CSS 3** for styling
 - **React Query / SWR** for data fetching
 - **OAuth** (Google, GitHub, Facebook) authentication
 - **Socket.IO** for real-time features
 
-### 🧠 Backend
+### Backend
 - **Node.js** with Express or NestJS
 - **PostgreSQL** with ORM or query builder (e.g., **Knex.js**, **Sequelize**, or **Prisma**)
 - **Dapper-style raw SQL queries**
@@ -24,47 +24,47 @@
 
 ---
 
-## ✨ Features
+## Features
 
-### 👥 User Roles
+### User Roles
 - **Users**: Book consultations, chat with AI, manage appointments
 - **Consultants**: Register expertise, manage availability, host meetings
 - **Admins**: Monitor analytics, approve consultants, manage services
 
-### 🔑 Authentication
+### Authentication
 - Login via Email/Password and OAuth (Google, GitHub)
 - OTP login via Twilio
 - Role-based access (JWT + middleware)
 
-### 💬 AI Consultation
+### AI Consultation
 - Custom ChatGPT prompts based on consultation type (Fitness, Legal, etc.)
 - Chat history & analytics
 - Token usage tracking
 
-### 📅 Scheduling
+### Scheduling
 - Book consultations with human experts
 - Sync availability with **Google Calendar**
 - Auto-create **Google Meet** links for sessions
 
-### 💳 Payments
+### Payments
 - Subscription-based plans (monthly/yearly)
 - One-time consultation payments
 - Stripe / Razorpay integration
 - Webhook support for transaction updates
 
-### 📲 Notifications
+### Notifications
 - SMS reminders via Twilio
 - Email confirmations (SendGrid / Mailgun optional)
 - Push notifications (Firebase optional)
 
-### 🛠 Admin Panel
+### Admin Panel
 - Consultant approval system
 - Service category management
 - Payments and user analytics
 
 ---
 
-## 🔄 Webhooks
+## Webhooks
 
 | Event Source | Webhook | Description |
 |--------------|---------|-------------|
@@ -74,7 +74,7 @@
 
 ---
 
-## 📦 Installation
+## Installation
 
 ```bash
 # Clone the repo
