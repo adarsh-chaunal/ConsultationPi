@@ -1,4 +1,4 @@
-# 🚀 ConsultationPi
+# ConsultationPi
 
 **ConsultationPi** is a full-stack, AI-powered consultation platform that enables users to connect with virtual and human consultants across a wide range of domains — fitness, clinical, legal, financial, and more. With seamless AI interaction, scheduling, payments, notifications, and video meetings, it's your one-stop consultation ecosystem.
 
