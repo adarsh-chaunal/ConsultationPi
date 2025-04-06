@@ -3,8 +3,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const pgp = pgPromise();
-const db = pgp(process.env.DATABASE_URL as string);
+const postgressPromise = pgPromise();
 
+const db = postgressPromise(process.env.DATABASE_URL as string);
 
 export default db;
