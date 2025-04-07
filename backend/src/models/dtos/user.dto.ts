@@ -1,6 +1,6 @@
 export interface UserDto {
-    id: number;
-    uniqueId: string;
+    id?: number;
+    uniqueId?: string;
     firstName: string;
     lastName: string;
     email: string;
