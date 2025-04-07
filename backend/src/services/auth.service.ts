@@ -30,8 +30,8 @@ export const registerUser = async (user: RegisterDto) => {
         password: hashedPassword,
         createdAt: new Date(),
         updatedAt: new Date(),
-        createdBy: "system",
-        updatedBy: "system",
+        createdBy: "",
+        updatedBy: "",
         isArchived: false,
         isActive: true,
     };

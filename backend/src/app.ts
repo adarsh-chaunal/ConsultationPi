@@ -1,25 +1,24 @@
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv'
+// import dotenv from 'dotenv'
 
 import authRoutes from './routes/auth.routes';
+import { loggingHandler } from './middlewares/logger.middleware';
+import { authenticationHandler } from './middlewares/auth.middleware';
+import { exceptionHandler } from './middlewares/exception.middleware';
 
-dotenv.config();
+// dotenv.config();
 
 const app = express();
 
 app.use(cors());
 
 app.use(express.json());
+app.use(loggingHandler);
+// app.use(authenticationHandler);
 
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', authenticationHandler, authRoutes);
 
-// app.get('/', (req, res) => {
-//     res.send('ConsultationPi API is running!');
-// });
+app.use(exceptionHandler)
 
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+export default app;
