@@ -16,10 +16,14 @@ const create = async (chat: ChatDto) : Promise<ChatDto> => {
         isArchived: false
     };
 
-    
-
     newChat = await ChatRepository.create(newChat); 
-    return newChat;
+    
+    chat.id = newChat.id;
+    chat.uniqueId = newChat.uniqueId;
+    chat.createdAt = newChat.createdAt;
+    chat.updatedAt = newChat.updatedAt;
+
+    return chat;
 }
 
 const update = async (chat: ChatDto) : Promise<ChatDto> => {

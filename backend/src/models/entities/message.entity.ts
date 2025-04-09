@@ -3,6 +3,7 @@ import { Chat } from "./chat.entity";
 
 export interface Message extends BaseEntity {
     chatId: number;
-    message: string;
+    content: string;
+    role?: 'user' | 'assistant' | 'system';
     chat?: Chat;
 }

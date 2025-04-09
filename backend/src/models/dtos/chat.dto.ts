@@ -1,3 +1,4 @@
+import { MessageDto } from "./message.dto";
 import { UserDto } from "./user.dto";
 
 export interface ChatDto {
@@ -12,4 +13,5 @@ export interface ChatDto {
     isArchived: boolean;
     isActive: boolean;
     user?: UserDto;
+    messages?: MessageDto[];
 }

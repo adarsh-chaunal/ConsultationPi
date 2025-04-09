@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import ChatService from '../services/chat.service';
+import MessageService from '../services/message.service';
 
 const create = async (req: Request, res: Response) => {
     try {
@@ -27,9 +28,31 @@ const update = async (req: Request, res: Response) => {
     }
 }
 
+const getMessageResponse = async (req: Request, res: Response) => {
+    try {
+        const chatIdFromUrl = req.params.chatId;
+        const { chatId, ...messageBody } = req.body;
+
+        if (chatIdFromUrl !== chatId) {
+            res.status(400).json({ error: 'Chat ID from URL does not match the body' });
+            return;
+        }
+
+        const message = await MessageService.getMessageResponse(req.body);
+        if (!message) {
+            res.status(400).json({ error: 'Message not created' });
+            return;
+        }
+        res.status(201).json(message);
+    } catch (err: any) {
+        res.status(400).json({ error: err.message });
+    }
+}
+
 const ChatController = {
     create,
-    update
+    update,
+    getMessageResponse
 }
 
 export default ChatController;

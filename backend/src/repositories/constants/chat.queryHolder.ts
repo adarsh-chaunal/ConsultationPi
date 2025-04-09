@@ -1,4 +1,16 @@
 export const ChatQueryHolder = {
     CREATE: `INSERT INTO Chat (UniqueId, UserId, Name, CreatedBy, CreatedAt, UpdatedBy, UpdatedAt, IsActive, IsArchived) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
     UPDATE: `UPDATE Chat SET Name = $1, UpdatedBy = $2, UpdatedAt = $3, IsActive = $4, IsArchived = $5 WHERE UniqueId = $6 RETURNING *`,
+    DELETE: `DELETE FROM Chat WHERE UniqueId = $1 RETURNING *`,
+    GET_BY_UNIQUE_ID: `SELECT * FROM Chat WHERE UniqueId = $1 AND IsActive = true`,
+    GET_BY_ID: `SELECT * FROM Chat WHERE Id = $1 AND IsActive = true`,
+    GET_ALL: `SELECT * FROM Chat WHERE IsActive = true`,
+    GET_ALL_BY_USER_ID: `SELECT * FROM Chat WHERE UserId = $1 AND IsActive = true`,
+    GET_ALL_BY_USER_ID_AND_IS_ARCHIVED: `SELECT * FROM Chat WHERE UserId = $1 AND IsArchived = $2 AND IsActive = true`,
+    GET_ALL_BY_USER_ID_AND_IS_ACTIVE: `SELECT * FROM Chat WHERE UserId = $1 AND IsActive = $2 AND IsArchived = false`,
+    GET_ALL_BY_USER_ID_AND_IS_ARCHIVED_AND_IS_ACTIVE: `SELECT * FROM Chat WHERE UserId = $1 AND IsArchived = $2 AND IsActive = $3`,
+    GET_ALL_BY_USER_ID_AND_IS_ACTIVE_AND_IS_ARCHIVED: `SELECT * FROM Chat WHERE UserId = $1 AND IsActive = $2 AND IsArchived = $3`,
+    GET_ALL_BY_USER_ID_AND_IS_ACTIVE_AND_IS_ARCHIVED_AND_IS_ACTIVE: `SELECT * FROM Chat WHERE UserId = $1 AND IsActive = $2 AND IsArchived = $3 AND IsActive = $4`,
+    GET_ALL_WITH_MESSAGES_BY_USER_ID: `SELECT * FROM Chat c LEFT JOIN Message m ON c.Id = m.ChatId WHERE c.UserId = $1 AND c.IsActive = true AND m.IsActive = true ORDER BY m.CreatedAt DESC`,
+    GET_WITH_MESSAGES_BY_CHAT_ID: `SELECT * FROM Chat c LEFT JOIN Message m ON c.Id = m.ChatId WHERE c.UserId = $1 AND c.IsActive = true AND m.IsActive = true AND c.Id = $2 ORDER BY m.CreatedAt DESC`,
 }
